@@ -1,0 +1,32 @@
+<div *ngIf="heroes.length !== 0">
+    <h1>Listado de heroes</h1>
+    <ul>
+        <li *ngFor="let heroe of heroes; let i = index">
+            {{i + 1}} .- {{heroe}}
+        </li>
+    </ul>
+
+    <button (click)="borrarHeroe()">
+        Borrar heroe
+    </button>
+</div>
+
+<div *ngIf="heroes_eliminados.length !== 0; else noBorrado">
+    <h1>Lista de heroes eliminados</h1>
+    <ul>
+        <li *ngFor="let heroe_eliminado of heroes_eliminados">
+            {{heroe_eliminado}}
+        </li>
+    </ul>
+</div>
+
+<!-- Referencia local: #noBorrado -->
+<ng-template #noBorrado>
+    <h3>No a borrado nada</h3>
+</ng-template>
+
+<!-- 
+
+    La referencia local lo vamos a identificar con el signo de gato o numeral y son del lado del template, por ejemplo: #noBorrado
+
+ -->
